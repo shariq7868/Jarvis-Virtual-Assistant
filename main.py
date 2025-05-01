@@ -2,6 +2,7 @@ import speech_recognition as sr
 import webbrowser
 import pyttsx3
 import musicLibrary
+import websites
 import requests
 from google import genai
  
@@ -17,10 +18,10 @@ def speak(text):
     engine.runAndWait()
 
 def processCommand(c):
-    if "open google" in c.lower():
-        webbrowser.open("https://google.com")
-    elif "open youtube" in c.lower():
-        webbrowser.open("https//youtube.com")
+    if c.lower().startswith("open"):
+        web = c.lower().split(" ")[1]
+        link = websites.website[web]
+        webbrowser.open(link)
     elif c.lower().startswith("play"):
         song = c.lower().split(" ")[1]
         link = musicLibrary.music[song]
