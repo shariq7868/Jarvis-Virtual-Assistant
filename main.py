@@ -3,10 +3,10 @@ import webbrowser
 import pyttsx3
 import musicLibrary
 import websites
-import requests
+import requests 
 from google import genai
  
-recogniser = sr.Recognizer()
+recogniser = sr.Recognizer() 
 engine = pyttsx3.init()
 newsapi = "8a908052d68e4e97870092fe628aaf10"
 geminiapi = "AIzaSyA6i4ls4R7OFlb9RTkXB9ROlcX7HyM2mI0"
@@ -55,7 +55,7 @@ if(__name__=="__main__"):
         try:
             with sr.Microphone() as source:
                 print("Listening....")
-                audio = r.listen(source,timeout=2,phrase_time_limit=1)
+                audio = r.listen(source,timeout=5,phrase_time_limit=5)
             word = r.recognize_google(audio)
             if(word.lower() == "jarvis"):
                 speak("yes")
@@ -65,6 +65,9 @@ if(__name__=="__main__"):
                     audio = r.listen(source)
                 command = r.recognize_google(audio)
                 print(command)
+                if command.lower() == "exit":
+                    speak("Goodbye!")
+                    break
                 processCommand(command)
                     
         except Exception as e:

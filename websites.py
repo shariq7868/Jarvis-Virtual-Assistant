@@ -1,5 +1,5 @@
 website = {
     "google" : "https://google.com" ,
-    "youtube" : "https//youtube.com" ,
+    "youtube" : "https://youtube.com" ,
     "github" : "https://github.com"
 }
