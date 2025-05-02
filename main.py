@@ -23,7 +23,7 @@ def processCommand(c):
         link = websites.website[web]
         webbrowser.open(link)
     elif c.lower().startswith("play"):
-        song = c.replace("play", "").strip()
+        song = c.replace("play", "").strip().lower()
         link = musicLibrary.music[song]
         webbrowser.open(link)
     elif "news" in c.lower():
